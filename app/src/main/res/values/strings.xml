@@ -1,0 +1,45 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">The Pizza Quiz App</string>
+    <string name="question_1">1) Select the name of the food item below?</string>
+    <string name="question_1_choice_1">Pizza</string>
+    <string name="question_1_choice_2">Ice cream</string>
+    <string name="question_1_choice_3">Chocolate</string>
+    <string name="question_1_choice_4">Candy</string>
+    <string name="question_2">2) Which of the following are required to make a traditional pizza from scratch?</string>
+    <string name="checkbox_1"> Flour</string>
+    <string name="checkbox_2"> Cheese</string>
+    <string name="checkbox_3"> Rice</string>
+    <string name="checkbox_4"> Pineapple</string>
+    <string name="question_3">3) Name your favorite pizza franchise or your favorite pizza place?</string>
+    <string name="food_item_name">Enter your answer here.</string>
+    <string name="pizza_place_name">Please type an answer in the answer field.</string>
+    <!--
+      Name for the order summary. It will be shown in the format of "Name: Amy" where Amy is the
+      user's name. [CHAR LIMIT=NONE]
+    -->
+    <string name="return_answer_3">Okay, your answer is <xliff:g example="Amy" id="name"></xliff:g></string>
+    <string name="return_answer_3_2">There is no wrong answer on this question.</string>
+
+
+    <string name="question_4">4) Pizza is a type of _______________?</string>
+    <string name="question_5">5) What is the name of the topping seen below?</string>
+    <string name="question_5_choice_1">Mushrooms</string>
+    <string name="question_5_choice_2">Pepperoni</string>
+    <string name="question_5_choice_3">Onions</string>
+    <string name="question_5_choice_4">Black olives</string>
+    <string name="question_6">6) Pizza is an _______________ food item.</string>
+    <string name="question_6_choice_1">Thai</string>
+    <string name="question_6_choice_2">Chinese</string>
+    <string name="question_6_choice_3">Italian</string>
+    <string name="question_6_choice_4">African</string>
+    <string name="rightAnswer">That\'s right. Good job!</string>
+    <string name="wrongAnswer">Incorrect answer. Please try again.</string>
+    <string name="check_answer">Check Answer</string>
+    <string name="selectAnAnswer">Please select an answer first</string>
+    <string name="correctAnswersTextView">0</string>
+    <string name="totalAnswersTextView1">You answered </string>
+    <string name="totalAnswersTextView2"> correct answers out of 6 total.</string>
+    <string name="totalAnswersTextView3">Your score is </string>
+    <string name="share_score">Share Score</string>
+    <string name="submit_quiz">Submit Quiz</string>
+</resources>
