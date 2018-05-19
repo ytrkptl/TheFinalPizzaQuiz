@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     int answerFourState = 0;
     int answerFiveState = 0;
     int answerSixState = 0;
+    ScrollView mScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             answerSixState = savedInstanceState.getInt(COUNTER_F);
             numberOfCorrectAnswers = savedInstanceState.getInt(COUNTER_G);
         }
+        mScrollView = findViewById(R.id.myScrollView);
         Button answerOneButton = findViewById(R.id.check_answer_1);
         Button answerTwoButton = findViewById(R.id.check_answer_2);
         Button answerThreeButton = findViewById(R.id.check_answer_3);
@@ -85,9 +88,20 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt(COUNTER_E, answerFiveState);
         outState.putInt(COUNTER_F, answerSixState);
         outState.putInt(COUNTER_G, numberOfCorrectAnswers);
+        outState.putIntArray("ARTICLE_SCROLL_POSITION",
+                new int[]{mScrollView.getScrollX(), mScrollView.getScrollY()});
     }
 
-
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        final int[] position = savedInstanceState.getIntArray("ARTICLE_SCROLL_POSITION");
+        if (position != null)
+            mScrollView.post(new Runnable() {
+                public void run() {
+                    mScrollView.scrollTo(position[0], position[1]);
+                }
+            });
+    }
 
     //    method executed upon clicking the check_answer_1 button located under question 1
     public void checkAnswerOne(View view) {
