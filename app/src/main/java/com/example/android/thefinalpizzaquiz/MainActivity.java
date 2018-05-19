@@ -77,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /***
+     * I found the code for saving the Scroll position upon screen rotation on the following site
+     * https://stackoverflow.com/questions/29208086/save-the-position-of-scrollview-when-the-orientation-changes/29208325#29208325
+     *
+     */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         // Save the values you need from your textview into "outState"-object
