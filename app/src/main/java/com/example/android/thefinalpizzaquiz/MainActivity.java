@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void checkAnswerOne(View view) {
-        RadioGroup radioGroupOne = (RadioGroup) findViewById(R.id.radio_group_1);
+        RadioGroup radioGroupOne = findViewById(R.id.radio_group_1);
         int selectedId = radioGroupOne.getCheckedRadioButtonId();
-        RadioButton answerRadioOne = (RadioButton) findViewById(R.id.radio_button_1);
-        Button answerOneButton = (Button) findViewById(R.id.check_answer_1);
+        RadioButton answerRadioOne = findViewById(R.id.radio_button_1);
+        Button answerOneButton = findViewById(R.id.check_answer_1);
         checkAnswersRadio(selectedId, answerRadioOne, answerOneButton);
     }
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         CheckBox questionTwoCheckBoxThree = findViewById(R.id.checkBoxThree);
         //figure out if the user wants whipped cream topping
         CheckBox questionTwoCheckBoxFour = findViewById(R.id.checkBoxFour);
-        Button answerTwoButton = (Button) findViewById(R.id.check_answer_2);
+        Button answerTwoButton = findViewById(R.id.check_answer_2);
         checkAnswersCheckboxes(questionTwoCheckBoxOne, questionTwoCheckBoxTwo, questionTwoCheckBoxThree, questionTwoCheckBoxFour, answerTwoButton);
     }
 
@@ -78,9 +78,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void checkAnswerThree(View view) {
-        EditText questionThree = (EditText) findViewById(R.id.edit_text_3);
+        EditText questionThree = findViewById(R.id.edit_text_3);
         String answerThree = getString(R.string.food_item_name);
-        Button answerButtonThree = (Button) findViewById(R.id.check_answer_3);
+        Button answerButtonThree = findViewById(R.id.check_answer_3);
         checkAnswersEditBoxes(questionThree, answerThree, answerButtonThree);
     }
 
@@ -128,20 +128,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkAnswerFour(View view) {
         int answer = answerFour;
-        Button answerFourButton = (Button) findViewById(R.id.check_answer_4);
-        checkAnswersFourButtons(answer, answerFourButton);
+        checkAnswersFourButtons(answer);
     }
 
     /**
      * Check the answer to question one and return the result of question 1 upon pressing the      *
      * Check answer button that is located right under Question 1.
      */
-    private void checkAnswersFourButtons(int answer, Button answerFourButton) {
-        if (answerFour == 0) {
+    private void checkAnswersFourButtons(int answer) {
+        if (answer == 0) {
             Toast.makeText(this, getString(R.string.selectAnAnswer), Toast.LENGTH_LONG).show();
-        } else if (answerFour == 3) {
+        } else if (answer == 3) {
             Toast.makeText(this, getString(R.string.rightAnswer), Toast.LENGTH_LONG).show();
             numberOfCorrectAnswers++;
+            Button answerFourButton = findViewById(R.id.check_answer_4);
             answerFourButton.setEnabled(false);
         } else {
             Toast.makeText(this, getString(R.string.wrongAnswer), Toast.LENGTH_SHORT).show();

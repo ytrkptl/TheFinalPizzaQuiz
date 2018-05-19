@@ -17,7 +17,7 @@
       Name for the order summary. It will be shown in the format of "Name: Amy" where Amy is the
       user's name. [CHAR LIMIT=NONE]
     -->
-    <string name="return_answer_3">Okay, your answer is <xliff:g example="Amy" id="name"></xliff:g></string>
+    <string name="return_answer_3">Okay, your answer is <xliff:g example="Amy" id="name" /></string>
     <string name="return_answer_3_2">There is no wrong answer on this question.</string>
 
 
@@ -42,4 +42,12 @@
     <string name="totalAnswersTextView3">Your score is </string>
     <string name="share_score">Share Score</string>
     <string name="submit_quiz">Submit Quiz</string>
+    <string name="pizza_image">Pizza image</string>
+    <string name="check_answer_button_text">Check Answer</string>
+    <string name="submit_answer_button_text">Submit Answer</string>
+    <string name="wood_button_text">Wood</string>
+    <string name="food_button_text_view">Food</string>
+    <string name="animal_button_text">Animal</string>
+    <string name="drink_button_text">Drink</string>
+    <string name="olives_image_description">Olives</string>
 </resources>
