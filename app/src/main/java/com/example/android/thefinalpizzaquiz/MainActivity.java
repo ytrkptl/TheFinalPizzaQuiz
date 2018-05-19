@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    //    method executed upon clicking the check_answer_1 button located under question 1
     public void checkAnswerOne(View view) {
         RadioGroup radioGroupOne = findViewById(R.id.radio_group_1);
         int selectedId = radioGroupOne.getCheckedRadioButtonId();
@@ -35,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Check the answer to question one and return the result of question 1 upon pressing the      *
-     * Check answer button that is located right under Question 1.
-     */
+     * check answer to question 1 and requires input and responds accordingly until the user
+     * gets the right answer
+     * */
     private void checkAnswersRadio(int selectedId, RadioButton answerRadioOne, Button answerOneButton) {
 
         if (selectedId == -1) {
@@ -51,19 +52,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //    method executed upon clicking the check_answer_2 button located under question 2
     public void checkAnswerTwo(View view) {
-        //figure out if the user wants whipped cream topping
         CheckBox questionTwoCheckBoxOne = findViewById(R.id.checkBoxOne);
-        //figure out if the user wants whipped cream topping
         CheckBox questionTwoCheckBoxTwo = findViewById(R.id.checkBoxTwo);
-        //figure out if the user wants whipped cream topping
         CheckBox questionTwoCheckBoxThree = findViewById(R.id.checkBoxThree);
-        //figure out if the user wants whipped cream topping
         CheckBox questionTwoCheckBoxFour = findViewById(R.id.checkBoxFour);
         Button answerTwoButton = findViewById(R.id.check_answer_2);
         checkAnswersCheckboxes(questionTwoCheckBoxOne, questionTwoCheckBoxTwo, questionTwoCheckBoxThree, questionTwoCheckBoxFour, answerTwoButton);
     }
 
+    /**
+     * check answer to question 2 and requires input and responds accordingly until the user
+     * gets the right answer
+     */
     private void checkAnswersCheckboxes(CheckBox answer1, CheckBox answer2, CheckBox answer3, CheckBox answer4, Button answerTwoButton) {
 
         if (!answer1.isChecked() && !answer2.isChecked() && !answer3.isChecked() && !answer4.isChecked()) {
@@ -77,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //    this methods get called upon pressing Submit answer button located under question 3
     public void checkAnswerThree(View view) {
         EditText questionThree = findViewById(R.id.edit_text_3);
         String answerThree = getString(R.string.food_item_name);
@@ -85,12 +88,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Check for answers for a question, then checks if correct and output correctness message and if correct, adds to score
-     *
-     * @param userAnswer which is the input and key, which is the answer stored in Strings.xml
-     *                   myButton is the button from the question to disable when the answer is correct
-     * @returns none; Toast outputs on screen
-     */
+     * check answer to question 3 and requires input and responds accordingly until the user
+     * gets the right answer
+     * */
     private void checkAnswersEditBoxes(EditText userAnswer, String key, Button answerButtonThree) {
 
         String userAnswerString = userAnswer.getText().toString();
@@ -105,36 +105,40 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    //  called upon pressing the Wood button, i.e. optionOne button under question 4
     public void choseOptionOne(View view) {
         // Do something in response to button click
         answerFour = 1;
     }
 
+    //    called upon pressing the Animal button, i.e. optionTwo button under question 4
     public void choseOptionTwo(View view) {
         // Do something in response to button click
         answerFour = 2;
     }
 
+    //    called upon pressing the Food button, i.e. optionThree button under question 4
     public void choseOptionThree(View view) {
         // Do something in response to button click
         answerFour = 3;
     }
 
+    //    called upon pressing the Drink button, i.e. optionFour button under question 4
     public void choseOptionFour(View view) {
         // Do something in response to button click
         answerFour = 4;
     }
 
+    //    called upon pressing the Check Answer button, i.e. check_answer_4 button under question 4
     public void checkAnswerFour(View view) {
         int answer = answerFour;
         checkAnswersFourButtons(answer);
     }
 
     /**
-     * Check the answer to question one and return the result of question 1 upon pressing the      *
-     * Check answer button that is located right under Question 1.
-     */
+     * check answer to question 4 and requires input and responds accordingly until the user
+     * gets the right answer
+     * */
     private void checkAnswersFourButtons(int answer) {
         if (answer == 0) {
             Toast.makeText(this, getString(R.string.selectAnAnswer), Toast.LENGTH_LONG).show();
@@ -148,18 +152,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //    called upon pressing the check_answer_5 button under question 5
     public void checkAnswerFive(View view) {
-        RadioGroup radioGroupTwo = (RadioGroup) findViewById(R.id.radio_group_2);
+        RadioGroup radioGroupTwo = findViewById(R.id.radio_group_2);
         int selectedId = radioGroupTwo.getCheckedRadioButtonId();
-        RadioButton answerRadioFive = (RadioButton) findViewById(R.id.radio_button_8);
-        Button answerFiveButton = (Button) findViewById(R.id.check_answer_5);
+        RadioButton answerRadioFive = findViewById(R.id.radio_button_8);
+        Button answerFiveButton = findViewById(R.id.check_answer_5);
         checkAnswersRadioFive(selectedId, answerRadioFive, answerFiveButton);
     }
 
     /**
-     * Check the answer to question one and return the result of question 1 upon pressing the      *
-     * Check answer button that is located right under Question 1.
-     */
+     * check answer to question 5 and requires input and responds accordingly until the user
+     * gets the right answer
+     * */
     private void checkAnswersRadioFive(int selectedId, RadioButton answerRadioFive, Button answerFiveButton) {
 
         if (selectedId == -1) {
@@ -173,17 +178,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //    called upon pressing the check_answer_6 button located under question 6
     public void checkAnswerSix(View view) {
-        RadioGroup radioGroupThree = (RadioGroup) findViewById(R.id.radio_group_3);
+        RadioGroup radioGroupThree = findViewById(R.id.radio_group_3);
         int selectedId = radioGroupThree.getCheckedRadioButtonId();
-        RadioButton answerRadioSix = (RadioButton) findViewById(R.id.radio_button_11);
-        Button answerSixButton = (Button) findViewById(R.id.check_answer_6);
+        RadioButton answerRadioSix = findViewById(R.id.radio_button_11);
+        Button answerSixButton = findViewById(R.id.check_answer_6);
         checkAnswersRadioSix(selectedId, answerRadioSix, answerSixButton);
     }
 
     /**
-     * Check the answer to question one and return the result of question 1 upon pressing the      *
-     * Check answer button that is located right under Question 1.
+     * check answer to question 6 and requires input and responds accordingly until the user
+     * gets the right answer
      */
     private void checkAnswersRadioSix(int selectedId, RadioButton answerRadioSix, Button answerSixButton) {
 
@@ -201,6 +207,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Create summary of the quiz including the score.
      * Display summary in a toast message
+     * the custom toast message code syntax was found at the following site.
+     * https://stackoverflow.com/questions/11288475/custom-toast-on-android-a-simple-example
      */
     public void submitQuiz(View view) {
         int percentScore = (numberOfCorrectAnswers * 100 / numberOfQuestions);
@@ -210,10 +218,8 @@ public class MainActivity extends AppCompatActivity {
         correctNumberOfAnswers += percentScore + " %";
 
         Toast toast = Toast.makeText(this, correctNumberOfAnswers, Toast.LENGTH_LONG);
-        View toastView = toast.getView(); // This'll return the default View of the Toast.
-
-        /* And now you can get the TextView of the default View of the Toast. */
-        TextView toastMessage = (TextView) toastView.findViewById(android.R.id.message);
+        View toastView = toast.getView();
+        TextView toastMessage = toastView.findViewById(android.R.id.message);
         toastMessage.setTextSize(16);
         toastMessage.setTextColor(Color.BLACK);
         toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.pizza, 0, 0, 0);
