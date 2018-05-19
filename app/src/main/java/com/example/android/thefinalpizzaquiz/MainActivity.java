@@ -15,16 +15,79 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String COUNTER_A = "counterA";
+    private static final String COUNTER_B = "counterB";
+    private static final String COUNTER_C = "counterC";
+    private static final String COUNTER_D = "counterD";
+    private static final String COUNTER_E = "counterE";
+    private static final String COUNTER_F = "counterF";
+    private static final String COUNTER_G = "counterG";
+
     //GLOBAL VARIABLE
     int numberOfCorrectAnswers = 0;
     int answerFour = 0;
     int numberOfQuestions = 6;
+    int answerOneState = 0;
+    int answerTwoState = 0;
+    int answerThreeState = 0;
+    int answerFourState = 0;
+    int answerFiveState = 0;
+    int answerSixState = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (savedInstanceState != null) {
+            answerOneState = savedInstanceState.getInt(COUNTER_A);
+            answerTwoState = savedInstanceState.getInt(COUNTER_B);
+            answerThreeState = savedInstanceState.getInt(COUNTER_C);
+            answerFourState = savedInstanceState.getInt(COUNTER_D);
+            answerFiveState = savedInstanceState.getInt(COUNTER_E);
+            answerSixState = savedInstanceState.getInt(COUNTER_F);
+            numberOfCorrectAnswers = savedInstanceState.getInt(COUNTER_G);
+        }
+        Button answerOneButton = findViewById(R.id.check_answer_1);
+        Button answerTwoButton = findViewById(R.id.check_answer_2);
+        Button answerThreeButton = findViewById(R.id.check_answer_3);
+        Button answerFourButton = findViewById(R.id.check_answer_4);
+        Button answerFiveButton = findViewById(R.id.check_answer_5);
+        Button answerSixButton = findViewById(R.id.check_answer_6);
+        if (answerOneState == 1) {
+            answerOneButton.setEnabled(false);
+        }
+        if (answerTwoState == 1) {
+            answerTwoButton.setEnabled(false);
+        }
+        if (answerThreeState == 1) {
+            answerThreeButton.setEnabled(false);
+        }
+        if (answerFourState == 1) {
+            answerFourButton.setEnabled(false);
+        }
+        if (answerFiveState == 1) {
+            answerFiveButton.setEnabled(false);
+        }
+        if (answerSixState == 1) {
+            answerSixButton.setEnabled(false);
+        }
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        // Save the values you need from your textview into "outState"-object
+        super.onSaveInstanceState(outState);
+        outState.putInt(COUNTER_A, answerOneState);
+        outState.putInt(COUNTER_B, answerTwoState);
+        outState.putInt(COUNTER_C, answerThreeState);
+        outState.putInt(COUNTER_D, answerFourState);
+        outState.putInt(COUNTER_E, answerFiveState);
+        outState.putInt(COUNTER_F, answerSixState);
+        outState.putInt(COUNTER_G, numberOfCorrectAnswers);
+    }
+
+
 
     //    method executed upon clicking the check_answer_1 button located under question 1
     public void checkAnswerOne(View view) {
@@ -47,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.rightAnswer), Toast.LENGTH_LONG).show();
             numberOfCorrectAnswers++;
             answerOneButton.setEnabled(false);
+            answerOneState = 1;
         } else {
             Toast.makeText(this, getString(R.string.wrongAnswer), Toast.LENGTH_SHORT).show();
         }
@@ -74,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.rightAnswer), Toast.LENGTH_LONG).show();
             numberOfCorrectAnswers++;
             answerTwoButton.setEnabled(false);
+            answerTwoState = 1;
         } else {
             Toast.makeText(this, getString(R.string.wrongAnswer), Toast.LENGTH_SHORT).show();
         }
@@ -82,16 +147,15 @@ public class MainActivity extends AppCompatActivity {
     //    this methods get called upon pressing Submit answer button located under question 3
     public void checkAnswerThree(View view) {
         EditText questionThree = findViewById(R.id.edit_text_3);
-        String answerThree = getString(R.string.food_item_name);
         Button answerButtonThree = findViewById(R.id.check_answer_3);
-        checkAnswersEditBoxes(questionThree, answerThree, answerButtonThree);
+        checkAnswersEditBoxes(questionThree, answerButtonThree);
     }
 
     /**
      * check answer to question 3 and requires input and responds accordingly until the user
      * gets the right answer
      * */
-    private void checkAnswersEditBoxes(EditText userAnswer, String key, Button answerButtonThree) {
+    private void checkAnswersEditBoxes(EditText userAnswer, Button answerButtonThree) {
 
         String userAnswerString = userAnswer.getText().toString();
 
@@ -102,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
                     getString(R.string.return_answer_3_2), Toast.LENGTH_LONG).show();
             numberOfCorrectAnswers++;
             answerButtonThree.setEnabled(false);
+            answerThreeState = 1;
         }
     }
 
@@ -147,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
             numberOfCorrectAnswers++;
             Button answerFourButton = findViewById(R.id.check_answer_4);
             answerFourButton.setEnabled(false);
+            answerFourState = 1;
         } else {
             Toast.makeText(this, getString(R.string.wrongAnswer), Toast.LENGTH_SHORT).show();
         }
@@ -173,6 +239,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.rightAnswer), Toast.LENGTH_LONG).show();
             numberOfCorrectAnswers++;
             answerFiveButton.setEnabled(false);
+            answerFiveState = 1;
         } else {
             Toast.makeText(this, getString(R.string.wrongAnswer), Toast.LENGTH_SHORT).show();
         }
@@ -199,6 +266,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.rightAnswer), Toast.LENGTH_LONG).show();
             numberOfCorrectAnswers++;
             answerSixButton.setEnabled(false);
+            answerSixState = 1;
         } else {
             Toast.makeText(this, getString(R.string.wrongAnswer), Toast.LENGTH_SHORT).show();
         }
