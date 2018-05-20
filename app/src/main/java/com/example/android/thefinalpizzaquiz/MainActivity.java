@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
@@ -317,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
         toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.pizza, 0, 0, 0);
         toastMessage.setGravity(Gravity.CENTER);
         toastMessage.setCompoundDrawablePadding(16);
-        toastView.setBackgroundColor(Color.GRAY);
+        toastView.setBackgroundColor(Color.WHITE);
         toast.show();
     }
 
