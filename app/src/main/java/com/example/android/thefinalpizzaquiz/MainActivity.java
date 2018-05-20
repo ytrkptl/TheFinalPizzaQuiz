@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         Button answerFourButton = findViewById(R.id.check_answer_4);
         Button answerFiveButton = findViewById(R.id.check_answer_5);
         Button answerSixButton = findViewById(R.id.check_answer_6);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         if (answerOneState == 1) {
             answerOneButton.setEnabled(false);
         }
@@ -186,6 +188,9 @@ public class MainActivity extends AppCompatActivity {
             numberOfCorrectAnswers++;
             answerButtonThree.setEnabled(false);
             answerThreeState = 1;
+            EditText questionThree = findViewById(R.id.edit_text_3);
+            questionThree.setFocusable(false);
+            questionThree.setFocusableInTouchMode(false);
         }
     }
 
